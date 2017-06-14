@@ -10045,7 +10045,7 @@ ninja.wallets.paperwallet = {
 		},
 
 		// use this function to bulk generate addresses
-		// rowLimit: number of Bitcoin Addresses to generate
+		// rowLimit: number of Version Addresses to generate
 		// startIndex: add this number to the row index for output purposes
 		// returns:
 		// index,bitcoinAddress,privateKeyWif
@@ -10680,7 +10680,7 @@ ninja.wallets.splitwallet = {
 			document.getElementById("splitstep1icon").setAttribute("class", "less");
 		}
 		catch (e) {
-			// browser does not have sufficient JavaScript support to generate a bitcoin address
+			// browser does not have sufficient JavaScript support to generate a Version address
 			alert(e);
 		}
 	},
@@ -10705,7 +10705,7 @@ ninja.wallets.splitwallet = {
 		return shares;
 	},
 
-	// combine base58 formatted shares and return a bitcoin byte array
+	// combine base58 formatted shares and return a Version byte array
 	combineFormattedShares: function (shares) {
 		var combined = secrets.combine(shares.map(Bitcoin.Base58.decode).map(Crypto.util.bytesToHex).map(ninja.wallets.splitwallet.stripLeadZeros));
 		return ninja.wallets.splitwallet.hexToBytes(combined);
